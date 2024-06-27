@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.MainPanel = new System.Windows.Forms.Panel();
-            this.HomeBtn = new System.Windows.Forms.Button();
-            this.MemberBtn = new System.Windows.Forms.Button();
             this.PaymentBtn = new System.Windows.Forms.Button();
+            this.MemberBtn = new System.Windows.Forms.Button();
+            this.HomeBtn = new System.Windows.Forms.Button();
+            this.MainPanel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,23 +47,17 @@
             this.panel1.Size = new System.Drawing.Size(137, 373);
             this.panel1.TabIndex = 0;
             // 
-            // MainPanel
+            // PaymentBtn
             // 
-            this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainPanel.Location = new System.Drawing.Point(137, 0);
-            this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(540, 373);
-            this.MainPanel.TabIndex = 1;
-            // 
-            // HomeBtn
-            // 
-            this.HomeBtn.Location = new System.Drawing.Point(31, 53);
-            this.HomeBtn.Name = "HomeBtn";
-            this.HomeBtn.Size = new System.Drawing.Size(75, 23);
-            this.HomeBtn.TabIndex = 0;
-            this.HomeBtn.Text = "Home";
-            this.HomeBtn.UseVisualStyleBackColor = true;
-            this.HomeBtn.Click += new System.EventHandler(this.HomeBtn_Click);
+            this.PaymentBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PaymentBtn.Location = new System.Drawing.Point(31, 137);
+            this.PaymentBtn.Name = "PaymentBtn";
+            this.PaymentBtn.Size = new System.Drawing.Size(75, 23);
+            this.PaymentBtn.TabIndex = 2;
+            this.PaymentBtn.Text = "Payment";
+            this.PaymentBtn.UseVisualStyleBackColor = true;
+            this.PaymentBtn.Click += new System.EventHandler(this.PaymentBtn_Click);
             // 
             // MemberBtn
             // 
@@ -77,17 +71,23 @@
             this.MemberBtn.UseVisualStyleBackColor = true;
             this.MemberBtn.Click += new System.EventHandler(this.MemberBtn_Click);
             // 
-            // PaymentBtn
+            // HomeBtn
             // 
-            this.PaymentBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PaymentBtn.Location = new System.Drawing.Point(31, 137);
-            this.PaymentBtn.Name = "PaymentBtn";
-            this.PaymentBtn.Size = new System.Drawing.Size(75, 23);
-            this.PaymentBtn.TabIndex = 2;
-            this.PaymentBtn.Text = "Payment";
-            this.PaymentBtn.UseVisualStyleBackColor = true;
-            this.PaymentBtn.Click += new System.EventHandler(this.PaymentBtn_Click);
+            this.HomeBtn.Location = new System.Drawing.Point(31, 53);
+            this.HomeBtn.Name = "HomeBtn";
+            this.HomeBtn.Size = new System.Drawing.Size(75, 23);
+            this.HomeBtn.TabIndex = 0;
+            this.HomeBtn.Text = "Home";
+            this.HomeBtn.UseVisualStyleBackColor = true;
+            this.HomeBtn.Click += new System.EventHandler(this.HomeBtn_Click);
+            // 
+            // MainPanel
+            // 
+            this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainPanel.Location = new System.Drawing.Point(137, 0);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Size = new System.Drawing.Size(540, 373);
+            this.MainPanel.TabIndex = 1;
             // 
             // MainForm
             // 
@@ -97,7 +97,7 @@
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.panel1);
             this.Name = "MainForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);

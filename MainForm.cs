@@ -34,6 +34,7 @@ namespace Dump
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
+            WindowState = FormWindowState.Maximized;
             openChildForm(new ClientForm());
         }
 
