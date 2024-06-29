@@ -1,18 +1,14 @@
-﻿using Dump.Forms;
+﻿using Dump.Entities;
+using Dump.Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Dump
 {
     public partial class MainForm : Form
     {
+        private readonly hulomclientloandbEntities _context = new hulomclientloandbEntities();
         public MainForm()
         {
             InitializeComponent();
@@ -32,10 +28,23 @@ namespace Dump
             childform.BringToFront();
             childform.Show();
         }
+
+        private int? CurrentUserID;
         private void MainForm_Load(object sender, EventArgs e)
         {
-            WindowState = FormWindowState.Maximized;
-            openChildForm(new ClientForm());
+            SignInForm s = new SignInForm();
+            if (s.ShowDialog() == DialogResult.OK)
+            {
+                WindowState = FormWindowState.Maximized;
+                if (s.UserID.HasValue)
+                {
+                    Entities.User u = _context.Users.FirstOrDefault(id => id.ID == s.UserID);
+                    CurrentUserID = s.UserID;
+                    UsernameLabel.Text = u.Username;
+
+                    openChildForm(new ClientForm((int)CurrentUserID));
+                }
+            }
         }
 
         private void HomeBtn_Click(object sender, EventArgs e)
@@ -45,7 +54,7 @@ namespace Dump
 
         private void MemberBtn_Click(object sender, EventArgs e)
         {
-            openChildForm(new ClientForm());
+            openChildForm(new ClientForm((int)CurrentUserID));
         }
 
         private void PaymentBtn_Click(object sender, EventArgs e)

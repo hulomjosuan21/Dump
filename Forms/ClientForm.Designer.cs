@@ -36,6 +36,7 @@
             this.DeleteBtn = new System.Windows.Forms.Button();
             this.ViewLoanBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,7 +47,6 @@
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.activeLoanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ClientTable)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -139,6 +139,7 @@
             this.ViewLoanBtn.TabIndex = 0;
             this.ViewLoanBtn.Text = "View Loan";
             this.ViewLoanBtn.UseVisualStyleBackColor = true;
+            this.ViewLoanBtn.Click += new System.EventHandler(this.ViewLoanBtn_Click);
             // 
             // panel2
             // 
@@ -150,13 +151,16 @@
             this.panel2.Size = new System.Drawing.Size(524, 290);
             this.panel2.TabIndex = 2;
             // 
+            // clientBindingSource
+            // 
+            this.clientBindingSource.DataSource = typeof(Dump.Entities.Client);
+            // 
             // iDDataGridViewTextBoxColumn
             // 
             this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
             this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
             this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
             this.iDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDDataGridViewTextBoxColumn.Visible = false;
             // 
             // firstnameDataGridViewTextBoxColumn
             // 
@@ -178,6 +182,7 @@
             this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
             this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
             this.addressDataGridViewTextBoxColumn.ReadOnly = true;
+            this.addressDataGridViewTextBoxColumn.Visible = false;
             // 
             // birthdateDataGridViewTextBoxColumn
             // 
@@ -185,6 +190,7 @@
             this.birthdateDataGridViewTextBoxColumn.HeaderText = "Birthdate";
             this.birthdateDataGridViewTextBoxColumn.Name = "birthdateDataGridViewTextBoxColumn";
             this.birthdateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.birthdateDataGridViewTextBoxColumn.Visible = false;
             // 
             // genderDataGridViewTextBoxColumn
             // 
@@ -192,6 +198,7 @@
             this.genderDataGridViewTextBoxColumn.HeaderText = "Gender";
             this.genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
             this.genderDataGridViewTextBoxColumn.ReadOnly = true;
+            this.genderDataGridViewTextBoxColumn.Visible = false;
             // 
             // phoneNumberDataGridViewTextBoxColumn
             // 
@@ -199,6 +206,7 @@
             this.phoneNumberDataGridViewTextBoxColumn.HeaderText = "PhoneNumber";
             this.phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
             this.phoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.phoneNumberDataGridViewTextBoxColumn.Visible = false;
             // 
             // emailDataGridViewTextBoxColumn
             // 
@@ -206,6 +214,7 @@
             this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
             this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
             this.emailDataGridViewTextBoxColumn.ReadOnly = true;
+            this.emailDataGridViewTextBoxColumn.Visible = false;
             // 
             // activeLoanDataGridViewTextBoxColumn
             // 
@@ -221,10 +230,6 @@
             this.userIDDataGridViewTextBoxColumn.Name = "userIDDataGridViewTextBoxColumn";
             this.userIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.userIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // clientBindingSource
-            // 
-            this.clientBindingSource.DataSource = typeof(Dump.Entities.Client);
             // 
             // ClientForm
             // 
@@ -254,6 +259,7 @@
         private System.Windows.Forms.Button DeleteBtn;
         private System.Windows.Forms.Button ViewLoanBtn;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.BindingSource clientBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastnameDataGridViewTextBoxColumn;
@@ -264,7 +270,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn activeLoanDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn userIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource clientBindingSource;
     }
 }
 

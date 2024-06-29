@@ -1,13 +1,7 @@
 ﻿using Dump.Entities;
 using Dump.Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Diagnostics.Debug;
 
@@ -16,32 +10,34 @@ namespace Dump
     public partial class ClientForm : Form
     {
         private readonly hulomclientloandbEntities _context;
-        public ClientForm()
+        private readonly int currentUserID;
+        public ClientForm(int currentUserID)
         {
             InitializeComponent();
             _context = new hulomclientloandbEntities();
+            this.currentUserID = currentUserID;
         }
 
         private void ClientForm_Load(object sender, EventArgs e)
         {
-            clientBindingSource.DataSource = _context.Clients.ToList();
+            clientBindingSource.DataSource = _context.Clients.Where(id => id.UserID == currentUserID).ToList();
         }
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            AddClientForm a = new AddClientForm(1);
+            AddClientForm a = new AddClientForm(currentUserID);
 
             if (a.ShowDialog() == DialogResult.OK)
             {
                 _context.Clients.Add(a.GetToAddOrEdit);
                 _context.SaveChanges();
-                clientBindingSource.DataSource = _context.Clients.ToList();
+                clientBindingSource.DataSource = _context.Clients.Where(id => id.UserID == currentUserID).ToList();
             }
         }
 
         private void EditBtn_Click(object sender, EventArgs e)
         {
-            AddClientForm a = new AddClientForm(_context.Clients.FirstOrDefault(id => id.ID == selectedClientID),1);
+            AddClientForm a = new AddClientForm(_context.Clients.FirstOrDefault(id => id.ID == selectedClientID), currentUserID);
 
             if (a.ShowDialog() == DialogResult.OK)
             {
@@ -60,7 +56,7 @@ namespace Dump
                     _context.SaveChanges();
                 }
 
-                clientBindingSource.DataSource = _context.Clients.ToList();
+                clientBindingSource.DataSource = _context.Clients.Where(id => id.UserID == currentUserID).ToList();
             }
         }
 
@@ -70,12 +66,11 @@ namespace Dump
             {
                 _context.Clients.Remove(_context.Clients.FirstOrDefault(id => id.ID == selectedClientID));
                 _context.SaveChanges();
-                clientBindingSource.DataSource = _context.Clients.ToList();
+                clientBindingSource.DataSource = _context.Clients.Where(id => id.UserID == currentUserID).ToList();
             }
         }
 
         private int selectedClientID;
-
         private void ClientTable_SelectionChanged(object sender, EventArgs e)
         {
             if (ClientTable.SelectedRows.Count > 0)
@@ -85,5 +80,11 @@ namespace Dump
             }
         }
 
+        private void ViewLoanBtn_Click(object sender, EventArgs e)
+        {
+            LoanForm l = new LoanForm(selectedClientID);
+            l.ShowDialog();
+            clientBindingSource.DataSource = _context.Clients.Where(id => id.UserID == currentUserID).ToList();
+        }
     }
 }

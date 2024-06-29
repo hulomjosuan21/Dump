@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dump.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,17 @@ namespace Dump.Forms
 {
     public partial class ScheduleForm : Form
     {
-        public ScheduleForm()
+        private readonly int currentLoanID;
+        public ScheduleForm(int currentLoanID)
         {
             InitializeComponent();
+            this.currentLoanID = currentLoanID;
+        }
+
+        private void ScheduleForm_Load(object sender, EventArgs e)
+        {
+            hulomclientloandbEntities _con = new hulomclientloandbEntities();
+            scheduleBindingSource.DataSource = _con.Schedules.Where(id => id.LoanID == currentLoanID).ToList();
         }
     }
 }
