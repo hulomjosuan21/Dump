@@ -288,7 +288,6 @@
             // 
             // scheduleBindingSource
             // 
-            this.scheduleBindingSource.DataSource = typeof(Dump.Entities.Schedule);
             // 
             // loanIDDataGridViewTextBoxColumn
             // 
@@ -384,7 +383,6 @@
             // 
             // loanBindingSource
             // 
-            this.loanBindingSource.DataSource = typeof(Dump.Entities.Loan);
             // 
             // PaymentForm
             // 

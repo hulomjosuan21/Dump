@@ -55,33 +55,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Client.cs">
-      <DependentUpon>HulomModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\HulomModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HulomModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\HulomModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HulomModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\HulomModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HulomModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\Loan.cs">
-      <DependentUpon>HulomModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\Schedule.cs">
-      <DependentUpon>HulomModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\User.cs">
-      <DependentUpon>HulomModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Forms\AddClientForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,13 +147,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="Entities\HulomModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>HulomModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Entities\HulomModel.edmx.diagram">
-      <DependentUpon>HulomModel.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Dump.Entities.Client.datasource" />
     <None Include="Properties\DataSources\Dump.Entities.Loan.datasource" />
@@ -199,19 +165,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Entities\HulomModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>HulomModel.Context.cs</LastGenOutput>
-      <DependentUpon>HulomModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Entities\HulomModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HulomModel.edmx</DependentUpon>
-      <LastGenOutput>HulomModel.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Folder Include="Entities\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

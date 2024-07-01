@@ -218,7 +218,6 @@
             // 
             // loanBindingSource
             // 
-            this.loanBindingSource.DataSource = typeof(Dump.Entities.Loan);
             // 
             // LoanForm
             // 
