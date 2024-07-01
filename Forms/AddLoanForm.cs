@@ -37,7 +37,7 @@ namespace Dump.Forms
         {
             decimal.TryParse(LoanAmountTextbox.Text, out decimal loanAmt);
             decimal.TryParse(InterestTextbox.Text, out decimal interest);
-            int.TryParse(InterestTextbox.Text, out int numPayment);
+            int.TryParse(NumPaymentTextbox.Text, out int numPayment);
             decimal.TryParse(OtherFeesTextbox.Text, out decimal deduction);
             ListOfPaymentTerm term = (ListOfPaymentTerm)TermPaymentComboBox.SelectedItem;
 

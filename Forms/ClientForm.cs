@@ -82,9 +82,12 @@ namespace Dump
 
         private void ViewLoanBtn_Click(object sender, EventArgs e)
         {
-            LoanForm l = new LoanForm(selectedClientID);
-            l.ShowDialog();
-            clientBindingSource.DataSource = _context.Clients.Where(id => id.UserID == currentUserID).ToList();
+            if (selectedClientID > 0)
+            {
+                LoanForm l = new LoanForm(selectedClientID);
+                l.ShowDialog();
+                clientBindingSource.DataSource = _context.Clients.Where(id => id.UserID == currentUserID).ToList();
+            }
         }
     }
 }
