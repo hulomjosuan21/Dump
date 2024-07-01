@@ -1,0 +1,51 @@
+CREATE TABLE [dbo].[Clients] (
+    [ID]          INT            PRIMARY KEY IDENTITY (1, 1) NOT NULL,
+    [Firstname]   NVARCHAR (50)  NOT NULL,
+    [Lastname]    NVARCHAR (50)  NOT NULL,
+    [Address]     NVARCHAR (50)  NOT NULL,
+    [Birthdate]   DATETIME       NOT NULL,
+    [Gender]      NVARCHAR (6)   NOT NULL,
+    [PhoneNumber] NVARCHAR (20)  NULL,
+    [Email]       NVARCHAR (350) NULL,
+    [ActiveLoan]  INT            NOT NULL,
+    [UserID]      INT            NULL
+);
+
+
+CREATE TABLE [dbo].[Loan] (
+    [LoanID]           INT             PRIMARY KEY IDENTITY (1, 1) NOT NULL,
+    [ClientID]         INT             NOT NULL,
+    [LoanAmount]       DECIMAL (18, 2) NOT NULL,
+    [Interest]         DECIMAL (5, 2)  NOT NULL,
+    [NoOfPayments]     INT             NOT NULL,
+    [PaymentTerm]      VARCHAR (50)    NOT NULL,
+    [Deduction]        DECIMAL (18, 2) NOT NULL,
+    [InterestedAmount] DECIMAL (18, 2) NOT NULL,
+    [ReceivableAmount] DECIMAL (18, 2) NOT NULL,
+    [TotalPayable]     DECIMAL (18, 2) NOT NULL,
+    [DueDate]          DATETIME        NOT NULL,
+    [Status]           VARCHAR (25)    NOT NULL,
+    CHECK ([Status]='Ongoing' OR [Status]='Paid' OR [Status]='Penalized')
+);
+
+CREATE TABLE [dbo].[Schedule] (
+    [ID]               INT             PRIMARY KEY IDENTITY (1, 1) NOT NULL,
+    [LoanID]           INT             NOT NULL,
+    [ClientID]         INT             NOT NULL,
+    [Collectables]     DECIMAL (18, 2) NOT NULL,
+    [Date]             DATETIME        NOT NULL,
+    [Status]           VARCHAR (25)    NOT NULL,
+    [CollectablesDump] DECIMAL (18, 2) DEFAULT ((0)) NOT NULL,
+    CHECK ([Status]='Ongoing' OR [Status]='Paid' OR [Status]='Penalized')
+);
+
+CREATE TABLE [dbo].[Users] (
+    [ID]        INT           PRIMARY KEY IDENTITY (1, 1) NOT NULL,
+    [Firstname] NVARCHAR (50) NOT NULL,
+    [Lastname]  NVARCHAR (50) NOT NULL,
+    [Username]  NVARCHAR (50) NOT NULL,
+    [Password]  NVARCHAR (10) NOT NULL,
+    [Usertype]  NVARCHAR (8)  NOT NULL,
+    UNIQUE NONCLUSTERED ([Username] ASC)
+);
+
